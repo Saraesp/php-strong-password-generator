@@ -1,6 +1,4 @@
 <?php
-
-    include __DIR__ . '/function.php';
    
     
 ?>
@@ -22,18 +20,8 @@
                     <h1 class="text-secondary">Strong Password Generator</h1>
                     <h3 class="text-white">Genera una password sicura</h3>
                 </div>
-                <?php if($error !== ''){ ?>
-                    <div class="alert alert-primary" role="alert">
-                        <?php echo $error ?>
-                    </div>
-                <?php } ?>
-                <?php if(isset($pwd)){ ?>
-                    <div class="alert alert-success" role="alert">
-                        <p>La password generata è: <strong><?php echo $pwd ?></strong></p> 
-                    </div>
-                <?php } ?>
                 <div class="bg-white p-4 mt-5">
-                    <form action="./index.php" method="GET">
+                    <form action="./dashboard.php" method="GET">
                         <div class="row">
                             <label class="col-sm-4 col-form-label">Lunghezza Password:</label>
                             <div class="col-sm-auto">

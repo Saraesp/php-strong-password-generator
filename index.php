@@ -5,9 +5,10 @@
         $password = '';
 
         while(strlen($password) < $lenght){
-            $randomChar = $alphabet[rand(0, strlen($alphabet) - 1)];
+            $randomChar = $alphabet[randomIndex($alphabet)];
             $password .= $randomChar;
         }
+        var_dump($password);
     }
 
     $error = '';
@@ -40,12 +41,16 @@
                  <h1 class="text-secondary">Strong Password Generator</h1>
                 <h3 class="text-white">Genera una password sicura</h3>
             </div>
-            <div class="alert alert-primary" role="alert">
-                <?php echo $error ?>
-            </div>
-            <div class="alert alert-success" role="alert">
-              <!-- La password generata è: <?php echo $password ?> -->
-            </div>
+            <?php if(isset($error)){ ?>
+                <div class="alert alert-primary" role="alert">
+                    <?php echo $error ?>
+                </div>
+            <?php } ?>
+            <?php if(isset($password)){ ?>
+                <div class="alert alert-success" role="alert">
+                   <p>La password generata è: <strong><?php echo $password ?></strong> </p> 
+                </div>
+            <?php } ?>
             <div class="bg-white p-4 mt-5">
                 <form action="./index.php" method="GET">
                     <div class="row">

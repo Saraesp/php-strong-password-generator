@@ -4,22 +4,22 @@
 
         $password = '';
 
-        if(strlen($password) < $lenght){
-            $randomPwd = $alphabet[rand(0, strlen($alphabet) - 1)];
-            $password .= $randomPwd;
-        };
+        while(strlen($password) < $lenght){
+            $randomChar = $alphabet[rand(0, strlen($alphabet) - 1)];
+            $password .= $randomChar;
+        }
     }
 
     $error = '';
-    if(isset($_GET['lung-password']) && $_GET['lung-password'] !== ''){
-
+    if(isset($_GET['lungh-password']) && $_GET['lungh-password'] !== ''){
+                var_dump($_GET['lungh-password']);
         $error = 'La lunghezza della password non è valida';
     }
-    elseif(isset($_GET['lung-password']) && $_GET['lung-password'] !== ''){
-        generateRanPassword($_GET['lung-password']);
+    elseif(isset($_GET['lungh-password']) && $_GET['lungh-password'] !== ''){
+        generateRanPassword($_GET['lungh-password']);
     }
 
-    $password = generateRanPassword($_GET['lung-password']);
+    // $password = generateRanPassword($_GET['lungh-password']);
     
 ?>
 
@@ -44,16 +44,16 @@
                 <?php echo $error ?>
             </div>
             <div class="alert alert-success" role="alert">
-                La password generata è: <?php echo $password ?>
+              <!-- La password generata è: <?php echo $password ?> -->
             </div>
             <div class="bg-white p-4 mt-5">
                 <form action="./index.php" method="GET">
-                    <div class="row ">
-                        <label for="inputPassword" class="col-sm-4 col-form-label">Lunghezza Password:</label>
+                    <div class="row">
+                        <label class="col-sm-4 col-form-label">Lunghezza Password:</label>
                         <div class="col-sm-auto">
                             <input type="number" name="lungh-password" class="form-control">
                         </div>
-                         <button type="button" class="btn btn-primary col-sm-auto">Invia</button>
+                         <button type="submit" class="btn btn-primary col-sm-auto">Invia</button>
                     </div>
                 </form>
             </div>
